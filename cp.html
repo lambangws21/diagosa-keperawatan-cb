@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contoh Form Diagnosa Keperawatan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="p-8">
+  <h1 class="text-3xl font-bold mb-8">Form Diagnosa Keperawatan di Kamar Operasi</h1>
+
+  <form>
+    <div class="mb-4">
+      <label for="diagnosis" class="block text-gray-700 font-bold mb-2">Diagnosa:</label>
+      <select id="diagnosis" class="border border-gray-300 rounded py-2 px-4 w-full">
+        <option value="">Pilih diagnosa</option>
+        <option value="Ansietas (D.0080)  berhubungan dengan Kekhawatiiran mengalami kegagalan">
+          <span class="tooltip">Ansietas (D.0080)
+            <span class="tooltiptext">
+              <p>Berhubungan dengan Kekhawatiiran mengalami kegagalan</p>
+            </span>
+          </span>
+        </option>
+        <option value="D.0141">Risiko Hipotermia Perioperatif (D.0141) berhubungan dengan Kombinasi anastesi regional dan umum</option>
+        <option value="D.0012">Risiko Perdarahan (D.0012)  berhubungan dengan Tindakan Pembedahan</option>
+        <option value="D.0077">Nyeri Akut (D.0077) berhubungan dengan Agen pencedera fisik (Prosedur Operasi)</option>
+      </select>
+    </div>
+
+    <div class="mb-4">
+      <label for="outcome" class="block text-gray-700 font-bold mb-2">Luaran:</label>
+      <select id="outcome" class="border border-gray-300 rounded py-2 px-4 w-full">
+        <option value="">Pilih luaran</option>
+        <option value="">Tingkat Ansietas (L.09093)<span class="tooltip">
+            <p>
+                <strong>Tingkat Ansietas-L.09093</strong>
+                <br />
+                Verbalisasi Kebingungan pasien menurun
+                <br />
+                Perilaku Tegang pasien menurun
+              </p>
+            </span>
+          </span>
+          </option>
+          <option value="O002">Luaran 2</option>
+          <option value="O003">Luaran 3</option>
+          <option value="O004">Luaran 4</option>
+        </select>
+      </div>
+  
+      <div class="mb-4">
+        <label for="intervention" class="block text-gray-700 font-bold mb-2">Intervensi:</label>
+        <select id="intervention" class="border border-gray-300 rounded py-2 px-4 w-full">
+          <option value="">Pilih intervensi</option>
+          <option value="I001">Intervensi 1</option>
+          <option value="I002">Intervensi 2</option>
+          <option value="I003">Intervensi 3</option>
+          <option value="I004">Intervensi 4</option>
+        </select>
+      </div>
+   
+      <button onclick="copyToClipboard()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Salin ke Clipboard
+      </button>
+    </form>
+    
+    <script>
+    var notificationTimeout;
+
+    function copyToClipboard() {
+    var diagnosis = document.getElementById("diagnosis").value;
+    var intervention = document.getElementById("intervention").value;
+    var outcome = document.getElementById("outcome").value;
+
+    // Remove any HTML tags from the outcome value
+    var strippedOutcome = outcome.replace(/<[^>]+>/g, "");
+
+    var textToCopy = "Diagnosa: " + diagnosis + "\nIntervensi: " + intervention + "\nLuaran: " + strippedOutcome;
+
+    clearTimeout(notificationTimeout); // Menghapus notifikasi sebelumnya (jika ada)
+
+    navigator.clipboard.writeText(textToCopy)
+        .then(function() {
+        showNotification("Teks telah disalin ke Clipboard!", "bg-green-500");
+        })
+        .catch(function(error) {
+        showNotification("Gagal menyalin teks!", "bg-red-500");
+        console.error("Gagal menyalin teks: ", error);
+        });
+    }
+
+    function showNotification(message, colorClass) {
+    var notification = document.createElement("div");
+    notification.className = "fixed bottom-0 right-0 p-4 m-4 rounded text-white " + colorClass;
+    notification.textContent = message;
+
+    document.body.appendChild(notification);
+
+    notificationTimeout = setTimeout(function() {
+        notification.style.display = "none";
+    }, 3000);
+}
+</script>
+  </body>
+  </html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contoh Form Diagnosa Keperawatan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-8">
+  <h1 class="text-3xl font-bold mb-8">Form Diagnosa Keperawatan di Kamar Operasi</h1>
+
+  <form>
+    <div class="mb-4">
+      <label for="diagnosis" class="block text-gray-700 font-bold mb-2">Diagnosa:</label>
+      <select id="diagnosis" class="border border-gray-300 rounded py-2 px-4 w-full">
+        <option value="">Pilih diagnosa</option>
+        <option value="Ansietas (D.0080)  berhubungan dengan Kekhawatiiran mengalami kegagalan">Ansietas (D.0080)  berhubungan dengan Kekhawatiiran mengalami kegagalan</option>
+        <option value="D.0141">Risiko Hipotermia Perioperatif (D.0141) berhubungan dengan Kombinasi anastesi regional dan umum</option>
+        <option value="D.0012">Risiko Perdarahan (D.0012)  berhubungan dengan Tindakan Pembedahan</option>
+        <option value="D.0077">Nyeri Akut (D.0077) berhubungan dengan Agen pencedera fisik (Prosedur Operasi)</option>
+      </select>
+    </div>
+
+    <div class="mb-4">
+      <label for="outcome" class="block text-gray-700 font-bold mb-2">Luaran:</label>
+      <select id="outcome" class="border border-gray-300 rounded py-2 px-4 w-full">
+        <option value="">Pilih luaran</option>
+        <option value="L.09093">Tingkat Ansietas-L.09093
+          <ul> 
+            <li>Verbalisasi Kebingungan pasien menurun</li>
+            <li>Perilaku Tegang pasien menurun</li>
+          </ul>
+        </option>
+        <option value="O002">Luaran 2</option>
+        <option value="O003">Luaran 3</option>
+        <option value="O004">Luaran 4</option>
+      </select>
+    </div>
+
+    <div class="mb-4">
+      <label for="intervention" class="block text-gray-700 font-bold mb-2">Intervensi:</label>
+      <select id="intervention" class="border border-gray-300 rounded py-2 px-4 w-full">
+        <option value="">Pilih intervensi</option>
+        <option value="I001">Intervensi 1</option>
+        <option value="I002">Intervensi 2</option>
+        <option value="I003">Intervensi 3</option>
+        <option value="I004">Intervensi 4</option>
+      </select>
+    </div>
+ 
+    <button onclick="copyToClipboard()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      Salin ke Clipboard
+    </button>
+  </form>
+  <script>
+    function copyToClipboard() {
+      var diagnosis = document.getElementById("diagnosis").value;
+      var intervention = document.getElementById("intervention").value;
+      var outcome = document.getElementById("outcome").value;
+
+      var textToCopy = "Diagnosa: " + diagnosis + "\nIntervensi: " + intervention + "\nLuaran: " + outcome;
+
+      navigator.clipboard.writeText(textToCopy)
+        .then(function() {
+          showNotification("Teks telah disalin ke Clipboard!", "bg-green-500");
+        })
+        .catch(function(error) {
+          showNotification("Gagal menyalin teks!", "bg-red-500");
+          console.error("Gagal menyalin teks: ", error);
+        });
+    }
+
+    function showNotification(message, colorClass) {
+      var notification = document.createElement("div");
+      notification.className = "fixed bottom-0 right-0 p-4 m-4 rounded text-white " + colorClass;
+      notification.textContent = message;
+
+      document.body.appendChild(notification);
+
+      setTimeout(function() {
+        notification.style.display = "none";
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
