@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Menghubungkan file CSS Tailwind -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @keyframes marquee {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+    
+    .animate-marquee {
+      animation: marquee 8s linear infinite;
+    }
+    </style>
+    
+</head>
+<body>
+  <header class="header">
+    <h1 class="header-title animate-marquee">Selamat Datang</h1>
+  </header>
+</body>
+</html>
