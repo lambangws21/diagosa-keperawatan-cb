@@ -60,7 +60,81 @@
       <tbody>
         <tr>
           <td class="border border-gray-300 p-2">
-            Ansietas (D. 0080) b/d Kekhawatiiran mengalami kegagalan
+            Risiko Hipotermia Perioperatif (D.0141) b/d Kombinasi anastesi regional dan umum         
             <button
-              onclick="showPopup('Ansietas (D. 0080) b/d K.
+              onclick="showPopup('Ansietas (D. 0080) b/d Kekhawatiiran mengalami kegagalan')"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+            >
+              Detail
+            </button>
+          </td>
+          <td class="border border-gray-300 p-2">Klien akan menunjukkan penurunan tingkat ansietas</td>
+          <td class="border border-gray-300 p-2">
+            <ul class="list-disc list-inside">
+              <li>Tentukan tingkat ansietas klien</li>
+              <li>Bantu klien mengidentifikasi kekhawatiran utama dan mencari informasi yang akurat</li>
+              <li>Bantu klien mengembangkan strategi koping yang efektif</li>
+              <li>Libatkan keluarga atau pendukung sosial dalam memberikan dukungan emosional</li>
+              <li>Monitor respon klien terhadap intervensi yang diberikan</li>
+              <li>Beri pengajaran pada klien mengenai teknik relaksasi dan manajemen stres</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+       <!-- Detail Diagnosa   -->
+       <div class="overlay" onclick="hidePopup()"></div>
+       <div class="popup" id="popup">
+         <h2 class="text-xl font-semibold mb-3">Detail Ansietas (D. 0080) b/d Kekhawatiran mengalami kegagalan</h2>
+         <p class="leading-tight"> <Span class="font-bold">Ansietas</Span> <br> <span class="text-sm leading-4">Kategori:Psikologis</span> <br> <span class="text-sm leading-4">Subkategori : Integritas Ego</span> <br> <span class="font-semibold"> Definisi :</span> <br>Kondisi emosi dan pengalaman subyektif individu terhadap objek yang tidak jelas dan spesifik akibat antisipasi bahaya yang memungkinkan individu melakukan tindakan untuk menghadapi ancaman.  
+         </p>
+         <p class="font-semibold">
+           Faktor Penyebab:
+           <ul class="list-decimal list-inside text-sm leading-tight">
+             <li>Krisis situasional</li>
+             <li>Kebutuhan tidak terpenuhi</li>
+            <li> Krisis maturasional</li>
+             <li>Ancaman terhadap konsep diri</li>
+            <li> Ancaman terhadap kematian</li>
+             <li>Kekhawatiran mengalami kegagalan </li>
+            <li> Disfungsi sistim keluarga</li>
+            <li> Hubuungan orang tua-anak tidak memuaskan</li>
+            <li> Faktor keturunan (tempramen mudah teragitasi sejak lahir)</li>
+            <li> Penyalahgunaan Zat</li>
+            <li> Terpapar bahaya lingkunga (mis. toksin, polutan, dan lain-lain)</li>
+            <li> lurang terpapar informasi</li>
+           </ul>
+         </p>
+         <p class="mt-2 font-semibold">Kondisi terkait
+           <ul class="list-decimal list-inside">
+             <li>Penyakit Addison</li>
+             <li>Trauma/perdarahan </li>
+             <li>Luka bakar</li>
+             <li>Aids</li>
+            <li> Penyakit Crohn</li>
+            <li> Muntah</li>
+            <li> Diarae</li>
+             <li>Kolitis ulseratif</li>
+           </ul>
+         </p>
+         <button
+         onclick="hidePopup()"
+         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4"
+        id="close-button" >
+         Tutup
+       </button>
+     </div>
+
+    <script>
+      function showPopup(text) {
+        document.getElementById("popup").style.display = "block";
+      }
+
+      function hidePopup() {
+        document.getElementById("popup").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
+.
  
